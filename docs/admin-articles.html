@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章管理 - 徐晓龙的博客</title>
+  <meta name="description" content="徐晓龙的个人博客后台文章管理页面。">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入开源图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        徐晓龙的博客
+      </div>
+      
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+          <i class="fas fa-tachometer-alt"></i>
+          <a href="admin-dashboard.html">控制台</a>
+        </li>
+        <li class="sidebar-menu-item active">
+          <i class="fas fa-file-alt"></i>
+          <a href="admin-articles.html">文章管理</a>
+        </li>
+        <li class="sidebar-menu-item">
+          <i class="fas fa-folder"></i>
+          <a href="admin-categories.html">分类管理</a>
+        </li>
+        <li class="sidebar-menu-item">
+          <i class="fas fa-user"></i>
+          <a href="admin-profile.html">个人信息</a>
+        </li>
+        <li class="sidebar-menu-item">
+          <i class="fas fa-cog"></i>
+          <a href="admin-settings.html">网站设置</a>
+        </li>
+        <li class="sidebar-menu-item" style="margin-top: auto;">
+          <i class="fas fa-sign-out-alt"></i>
+          <a href="admin-login.html">退出登录</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="admin-content">
+      <div class="admin-header">
+        <h1 class="admin-title">文章管理</h1>
+        <div>
+          <a href="admin-article-edit.html" class="btn btn-primary">
+            <i class="fas fa-plus"></i> 新建文章
+          </a>
+        </div>
+      </div>
+      
+      <!-- 文章筛选和搜索 -->
+      <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+          <div style="flex: 1 1 300px;">
+            <input type="text" placeholder="搜索文章标题..." style="width: 100%; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+          </div>
+          
+          <div style="display: flex; gap: 0.75rem;">
+            <select style="padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+              <option>所有分类</option>
+              <option>前端开发</option>
+              <option>后端开发</option>
+              <option>全栈开发</option>
+              <option>个人感悟</option>
+              <option>技术分享</option>
+            </select>
+            
+            <select style="padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+              <option>所有状态</option>
+              <option>已发布</option>
+              <option>草稿</option>
+              <option>待审核</option>
+            </select>
+            
+            <button class="btn btn-outline">
+              <i class="fas fa-filter"></i> 筛选
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 文章列表 -->
+      <div class="card" style="padding: 1.5rem;">
+        <div style="overflow-x: auto;">
+          <table class="table" style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="width: 20px;">
+                  <input type="checkbox" title="全选">
+                </th>
+                <th>标题</th>
+                <th>分类</th>
+                <th>状态</th>
+                <th>发布日期</th>
+                <th>阅读量</th>
+                <th>评论数</th>
+                <th style="width: 150px;">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 文章1 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="font-weight: 500;">我的编程学习之旅：从零开始到全栈开发</div>
+                  <div style="font-size: 0.75rem; color: var(--text-secondary-color);">/blog/my-programming-journey</div>
+                </td>
+                <td>
+                  <span style="background-color: #EFF6FF; color: #1E40AF; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    全栈开发
+                  </span>
+                </td>
+                <td>
+                  <span style="background-color: #D1FAE5; color: #065F46; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    已发布
+                  </span>
+                </td>
+                <td>2023-06-15</td>
+                <td>1,234</td>
+                <td>12</td>
+                <td>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <a href="admin-article-edit.html" class="btn btn-sm btn-outline" title="编辑">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="blog-post.html" target="_blank" class="btn btn-sm btn-outline" title="预览">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <button class="btn btn-sm btn-outline btn-danger" title="删除">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- 文章2 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="font-weight: 500;">Next.js 13 新特性详解</div>
+                  <div style="font-size: 0.75rem; color: var(--text-secondary-color);">/blog/nextjs-13-features</div>
+                </td>
+                <td>
+                  <span style="background-color: #EFF6FF; color: #1E40AF; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    前端开发
+                  </span>
+                </td>
+                <td>
+                  <span style="background-color: #D1FAE5; color: #065F46; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    已发布
+                  </span>
+                </td>
+                <td>2023-05-28</td>
+                <td>986</td>
+                <td>8</td>
+                <td>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <a href="admin-article-edit.html" class="btn btn-sm btn-outline" title="编辑">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="blog-post.html" target="_blank" class="btn btn-sm btn-outline" title="预览">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <button class="btn btn-sm btn-outline btn-danger" title="删除">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- 文章3 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="font-weight: 500;">TypeScript 高级类型技巧</div>
+                  <div style="font-size: 0.75rem; color: var(--text-secondary-color);">/blog/typescript-advanced-types</div>
+                </td>
+                <td>
+                  <span style="background-color: #EFF6FF; color: #1E40AF; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    前端开发
+                  </span>
+                </td>
+                <td>
+                  <span style="background-color: #D1FAE5; color: #065F46; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    已发布
+                  </span>
+                </td>
+                <td>2023-05-10</td>
+                <td>754</td>
+                <td>5</td>
+                <td>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <a href="admin-article-edit.html" class="btn btn-sm btn-outline" title="编辑">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="blog-post.html" target="_blank" class="btn btn-sm btn-outline" title="预览">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <button class="btn btn-sm btn-outline btn-danger" title="删除">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- 文章4 (草稿) -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="font-weight: 500;">Web开发中的常见安全问题</div>
+                  <div style="font-size: 0.75rem; color: var(--text-secondary-color);">(草稿)</div>
+                </td>
+                <td>
+                  <span style="background-color: #EFF6FF; color: #1E40AF; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    全栈开发
+                  </span>
+                </td>
+                <td>
+                  <span style="background-color: #FEF3C7; color: #92400E; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    草稿
+                  </span>
+                </td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <a href="admin-article-edit.html" class="btn btn-sm btn-outline" title="编辑">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="blog-post.html" target="_blank" class="btn btn-sm btn-outline" title="预览">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <button class="btn btn-sm btn-outline btn-danger" title="删除">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- 文章5 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="font-weight: 500;">React状态管理最佳实践</div>
+                  <div style="font-size: 0.75rem; color: var(--text-secondary-color);">/blog/react-state-management</div>
+                </td>
+                <td>
+                  <span style="background-color: #EFF6FF; color: #1E40AF; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    前端开发
+                  </span>
+                </td>
+                <td>
+                  <span style="background-color: #D1FAE5; color: #065F46; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem;">
+                    已发布
+                  </span>
+                </td>
+                <td>2023-04-12</td>
+                <td>632</td>
+                <td>7</td>
+                <td>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <a href="admin-article-edit.html" class="btn btn-sm btn-outline" title="编辑">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="blog-post.html" target="_blank" class="btn btn-sm btn-outline" title="预览">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <button class="btn btn-sm btn-outline btn-danger" title="删除">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- 批量操作和分页 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem;">
+          <div>
+            <select style="padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+              <option>批量操作</option>
+              <option>发布所选</option>
+              <option>设为草稿</option>
+              <option>删除所选</option>
+            </select>
+            <button class="btn btn-outline" style="margin-left: 0.5rem;">应用</button>
+          </div>
+          
+          <div class="pagination">
+            <button class="pagination-item" disabled>
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="pagination-item active">1</button>
+            <button class="pagination-item">2</button>
+            <button class="pagination-item">3</button>
+            <span class="pagination-ellipsis">...</span>
+            <button class="pagination-item">8</button>
+            <button class="pagination-item">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html> 

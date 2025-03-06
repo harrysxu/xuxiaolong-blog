@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我 - 徐晓龙的博客</title>
+  <meta name="description" content="了解徐晓龙的个人信息、技能和联系方式。">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入开源图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">徐晓龙的博客</a>
+        
+        <!-- 桌面端导航链接 -->
+        <div class="nav-links" id="nav-links">
+          <a href="index.html" class="nav-link">首页</a>
+          <a href="categories.html" class="nav-link">分类</a>
+          <a href="about.html" class="nav-link active">关于</a>
+        </div>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="mobile-menu-button" class="btn btn-outline" style="display: none;">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+      
+      <!-- 移动端菜单 -->
+      <div id="mobile-menu" class="hidden">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="categories.html" class="nav-link">分类</a>
+        <a href="about.html" class="nav-link active">关于</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <!-- 个人介绍部分 -->
+      <section style="margin-bottom: 4rem;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+               alt="徐晓龙头像" 
+               style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">徐晓龙</h1>
+          <p style="color: var(--text-secondary-color); font-size: 1.25rem; margin-bottom: 1.5rem;">全栈开发工程师 / 技术写作者</p>
+          <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <a href="#" style="color: var(--text-secondary-color); font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+            <a href="#" style="color: var(--text-secondary-color); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color: var(--text-secondary-color); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:contact@example.com" style="color: var(--text-secondary-color); font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
+          </div>
+          <div style="max-width: 700px; margin: 0 auto;">
+            <p style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              你好，我是徐晓龙，一名热爱技术的全栈开发工程师。我专注于 Web 开发，擅长 JavaScript 生态系统，包括 React、Node.js 等技术栈。
+              我喜欢探索新技术，解决复杂问题，并通过博客分享我的学习心得和经验。
+            </p>
+            <p style="font-size: 1.125rem; line-height: 1.7;">
+              这个博客是我记录技术探索、分享知识和交流想法的平台。如果你对我的文章有任何问题或建议，欢迎通过邮件联系我。
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 技能部分 -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">我的技能</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+          <!-- 前端开发技能卡片 -->
+          <div class="card" style="padding: 2rem;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <i class="fas fa-laptop-code" style="font-size: 3rem; color: var(--primary-color);"></i>
+              <h3 style="margin-top: 1rem; font-size: 1.5rem;">前端开发</h3>
+            </div>
+            <ul style="list-style-type: none; padding: 0;">
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">React</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 90%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">TypeScript</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 85%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">Next.js</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 80%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">CSS/SASS</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 90%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="display: flex; align-items: center;">
+                <div style="width: 100px;">Tailwind</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 85%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- 后端开发技能卡片 -->
+          <div class="card" style="padding: 2rem;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <i class="fas fa-server" style="font-size: 3rem; color: var(--primary-color);"></i>
+              <h3 style="margin-top: 1rem; font-size: 1.5rem;">后端开发</h3>
+            </div>
+            <ul style="list-style-type: none; padding: 0;">
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">Node.js</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 85%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">Express</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 90%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">MongoDB</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 80%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">PostgreSQL</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 75%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="display: flex; align-items: center;">
+                <div style="width: 100px;">GraphQL</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 70%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- 其他技能卡片 -->
+          <div class="card" style="padding: 2rem;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <i class="fas fa-tools" style="font-size: 3rem; color: var(--primary-color);"></i>
+              <h3 style="margin-top: 1rem; font-size: 1.5rem;">其他技能</h3>
+            </div>
+            <ul style="list-style-type: none; padding: 0;">
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">Git</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 90%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">Docker</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 75%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">Jest</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 80%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="margin-bottom: 0.75rem; display: flex; align-items: center;">
+                <div style="width: 100px;">CI/CD</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 70%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+              <li style="display: flex; align-items: center;">
+                <div style="width: 100px;">AWS</div>
+                <div style="flex-grow: 1; height: 8px; background-color: #E5E7EB; border-radius: 4px;">
+                  <div style="width: 65%; height: 100%; background-color: var(--primary-color); border-radius: 4px;"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 工作经历部分 -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">工作经历</h2>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+          <!-- 工作经历项1 -->
+          <div style="margin-bottom: 2.5rem; position: relative; padding-left: 30px;">
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background-color: var(--primary-color);"></div>
+            <div style="position: absolute; left: -8px; top: 0; width: 20px; height: 20px; border-radius: 50%; background-color: var(--primary-color);"></div>
+            
+            <div style="margin-bottom: 0.75rem;">
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">高级前端开发工程师</h3>
+              <div style="display: flex; justify-content: space-between; color: var(--text-secondary-color);">
+                <span>某科技有限公司</span>
+                <span>2020年6月 - 至今</span>
+              </div>
+            </div>
+            
+            <ul style="color: var(--text-color); padding-left: 1.25rem;">
+              <li style="margin-bottom: 0.5rem;">负责公司核心产品的前端架构设计和开发，使用React和TypeScript</li>
+              <li style="margin-bottom: 0.5rem;">优化应用性能，将首屏加载时间减少40%</li>
+              <li style="margin-bottom: 0.5rem;">引入现代化前端工具链和工作流，提高了团队开发效率</li>
+              <li>指导初级开发人员，主持技术分享和代码审查</li>
+            </ul>
+          </div>
+          
+          <!-- 工作经历项2 -->
+          <div style="margin-bottom: 2.5rem; position: relative; padding-left: 30px;">
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background-color: var(--primary-color);"></div>
+            <div style="position: absolute; left: -8px; top: 0; width: 20px; height: 20px; border-radius: 50%; background-color: var(--primary-color);"></div>
+            
+            <div style="margin-bottom: 0.75rem;">
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Web开发工程师</h3>
+              <div style="display: flex; justify-content: space-between; color: var(--text-secondary-color);">
+                <span>某网络科技有限公司</span>
+                <span>2018年3月 - 2020年5月</span>
+              </div>
+            </div>
+            
+            <ul style="color: var(--text-color); padding-left: 1.25rem;">
+              <li style="margin-bottom: 0.5rem;">使用React和Node.js开发公司电子商务平台</li>
+              <li style="margin-bottom: 0.5rem;">参与RESTful API的设计和实现</li>
+              <li style="margin-bottom: 0.5rem;">与UI/UX设计师合作，将设计转化为高质量的前端代码</li>
+              <li>编写单元测试和集成测试，确保代码质量</li>
+            </ul>
+          </div>
+          
+          <!-- 工作经历项3 -->
+          <div style="position: relative; padding-left: 30px;">
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background-color: var(--primary-color);"></div>
+            <div style="position: absolute; left: -8px; top: 0; width: 20px; height: 20px; border-radius: 50%; background-color: var(--primary-color);"></div>
+            
+            <div style="margin-bottom: 0.75rem;">
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">前端开发实习生</h3>
+              <div style="display: flex; justify-content: space-between; color: var(--text-secondary-color);">
+                <span>某互联网公司</span>
+                <span>2017年7月 - 2018年2月</span>
+              </div>
+            </div>
+            
+            <ul style="color: var(--text-color); padding-left: 1.25rem;">
+              <li style="margin-bottom: 0.5rem;">参与公司官网的改版工作，使用HTML, CSS和JavaScript</li>
+              <li style="margin-bottom: 0.5rem;">负责移动端页面的适配和优化</li>
+              <li style="margin-bottom: 0.5rem;">修复浏览器兼容性问题</li>
+              <li>学习并应用前端最佳实践</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 教育背景部分 -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">教育背景</h2>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+          <!-- 教育背景项1 -->
+          <div style="display: flex; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #E5E7EB;">
+            <div style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: var(--background-alt-color); border-radius: 0.5rem; margin-right: 1.5rem; flex-shrink: 0;">
+              <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">计算机科学与技术 - 硕士学位</h3>
+              <p style="color: var(--text-secondary-color); margin-bottom: 0.75rem;">某知名大学 | 2015 - 2018</p>
+              <p>
+                研究方向：Web技术和人机交互<br>
+                主要课程：高级算法、分布式系统、机器学习、高级软件工程
+              </p>
+            </div>
+          </div>
+          
+          <!-- 教育背景项2 -->
+          <div style="display: flex;">
+            <div style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: var(--background-alt-color); border-radius: 0.5rem; margin-right: 1.5rem; flex-shrink: 0;">
+              <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">软件工程 - 学士学位</h3>
+              <p style="color: var(--text-secondary-color); margin-bottom: 0.75rem;">某大学 | 2011 - 2015</p>
+              <p>
+                主要课程：数据结构、算法、计算机网络、数据库系统、Web开发<br>
+                毕业设计：基于React的社交媒体应用
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 联系方式部分 -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">联系我</h2>
+        
+        <div class="card" style="max-width: 600px; margin: 0 auto; padding: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div style="display: flex; align-items: center;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--background-alt-color); display: flex; justify-content: center; align-items: center; margin-right: 1rem;">
+                <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--primary-color);"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">邮箱</h3>
+                <a href="mailto:contact@example.com">contact@example.com</a>
+              </div>
+            </div>
+            
+            <div style="display: flex; align-items: center;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--background-alt-color); display: flex; justify-content: center; align-items: center; margin-right: 1rem;">
+                <i class="fab fa-github" style="font-size: 1.5rem; color: var(--primary-color);"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">GitHub</h3>
+                <a href="https://github.com/username" target="_blank">github.com/username</a>
+              </div>
+            </div>
+            
+            <div style="display: flex; align-items: center;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--background-alt-color); display: flex; justify-content: center; align-items: center; margin-right: 1rem;">
+                <i class="fab fa-twitter" style="font-size: 1.5rem; color: var(--primary-color);"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Twitter</h3>
+                <a href="https://twitter.com/username" target="_blank">@username</a>
+              </div>
+            </div>
+            
+            <div style="display: flex; align-items: center;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--background-alt-color); display: flex; justify-content: center; align-items: center; margin-right: 1rem;">
+                <i class="fab fa-linkedin" style="font-size: 1.5rem; color: var(--primary-color);"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">LinkedIn</h3>
+                <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <div style="margin-bottom: 1rem;">
+          <h3 style="margin-bottom: 1rem;">徐晓龙的博客</h3>
+          <p style="max-width: 400px;">分享编程、设计和生活的个人博客，记录成长与思考的点滴。</p>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 1rem;">链接</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.5rem;"><a href="index.html">首页</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="categories.html">分类</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 1rem;">联系方式</h4>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" style="font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+            <a href="#" style="font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+            <a href="#" style="font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 2rem; text-align: center; color: var(--text-secondary-color);">
+        <p>&copy; 2023 徐晓龙的博客. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html> 

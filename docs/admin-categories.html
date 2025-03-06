@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分类管理 - 徐晓龙的博客</title>
+  <meta name="description" content="徐晓龙的个人博客后台管理系统 - 分类管理">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入开源图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- 侧边栏导航 -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" target="_blank">徐晓龙的博客</a>
+        <p>管理后台</p>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <a href="admin-dashboard.html" class="sidebar-menu-item">
+          <i class="fas fa-tachometer-alt"></i> 仪表盘
+        </a>
+        <a href="admin-articles.html" class="sidebar-menu-item">
+          <i class="fas fa-file-alt"></i> 文章管理
+        </a>
+        <a href="admin-categories.html" class="sidebar-menu-item active">
+          <i class="fas fa-folder"></i> 分类管理
+        </a>
+        <a href="admin-settings.html" class="sidebar-menu-item">
+          <i class="fas fa-cog"></i> 系统设置
+        </a>
+        <a href="index.html" class="sidebar-menu-item">
+          <i class="fas fa-sign-out-alt"></i> 退出登录
+        </a>
+      </nav>
+    </aside>
+    
+    <!-- 主要内容区域 -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <h1 class="admin-title">分类管理</h1>
+        <button id="add-category-btn" class="btn btn-primary">
+          <i class="fas fa-plus"></i> 新增分类
+        </button>
+      </header>
+      
+      <!-- 添加分类表单 (默认隐藏) -->
+      <div id="category-form-container" style="display: none; margin-bottom: 2rem; padding: 1.5rem; background-color: var(--background-alt-color); border-radius: 0.5rem;">
+        <h2 style="margin-bottom: 1.5rem;">添加新分类</h2>
+        <form id="category-form">
+          <div class="form-group">
+            <label for="category-name" class="form-label">分类名称</label>
+            <input type="text" id="category-name" class="form-input" placeholder="输入分类名称" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="category-slug" class="form-label">分类别名 (URL友好)</label>
+            <input type="text" id="category-slug" class="form-input" placeholder="输入分类别名，用于URL" required>
+            <p style="font-size: 0.875rem; color: var(--text-secondary-color); margin-top: 0.5rem;">
+              分类别名只能包含小写字母、数字和连字符
+            </p>
+          </div>
+          
+          <div class="form-group">
+            <label for="category-description" class="form-label">分类描述</label>
+            <textarea id="category-description" class="form-textarea" placeholder="简短描述此分类的内容" rows="3"></textarea>
+          </div>
+          
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-primary">保存分类</button>
+            <button type="button" id="cancel-category-btn" class="btn btn-outline">取消</button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- 分类列表 -->
+      <div class="table-container" style="overflow-x: auto;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 5%;">ID</th>
+              <th style="width: 25%;">分类名称</th>
+              <th style="width: 20%;">别名</th>
+              <th style="width: 30%;">描述</th>
+              <th style="width: 10%;">文章数</th>
+              <th style="width: 10%;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 分类1 -->
+            <tr>
+              <td>1</td>
+              <td>编程</td>
+              <td>programming</td>
+              <td>编程语言、技术分享和开发经验</td>
+              <td>12</td>
+              <td class="table-actions">
+                <button class="btn-icon edit-category" data-id="1" title="编辑">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete-category" data-id="1" title="删除">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            
+            <!-- 分类2 -->
+            <tr>
+              <td>2</td>
+              <td>前端开发</td>
+              <td>frontend</td>
+              <td>HTML、CSS、JavaScript、前端框架等相关内容</td>
+              <td>8</td>
+              <td class="table-actions">
+                <button class="btn-icon edit-category" data-id="2" title="编辑">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete-category" data-id="2" title="删除">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            
+            <!-- 分类3 -->
+            <tr>
+              <td>3</td>
+              <td>设计</td>
+              <td>design</td>
+              <td>UI/UX设计、色彩理论、设计思维</td>
+              <td>5</td>
+              <td class="table-actions">
+                <button class="btn-icon edit-category" data-id="3" title="编辑">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete-category" data-id="3" title="删除">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            
+            <!-- 分类4 -->
+            <tr>
+              <td>4</td>
+              <td>人工智能</td>
+              <td>ai</td>
+              <td>AI发展、机器学习、深度学习相关内容</td>
+              <td>3</td>
+              <td class="table-actions">
+                <button class="btn-icon edit-category" data-id="4" title="编辑">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete-category" data-id="4" title="删除">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            
+            <!-- 分类5 -->
+            <tr>
+              <td>5</td>
+              <td>工具</td>
+              <td>tools</td>
+              <td>提高效率的软件、工具和资源</td>
+              <td>4</td>
+              <td class="table-actions">
+                <button class="btn-icon edit-category" data-id="5" title="编辑">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete-category" data-id="5" title="删除">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            
+            <!-- 分类6 -->
+            <tr>
+              <td>6</td>
+              <td>网站开发</td>
+              <td>web-development</td>
+              <td>网站设计、开发和维护的经验分享</td>
+              <td>6</td>
+              <td class="table-actions">
+                <button class="btn-icon edit-category" data-id="6" title="编辑">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete-category" data-id="6" title="删除">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- 删除确认模态框 (默认隐藏) -->
+      <div id="delete-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+        <div style="background-color: white; padding: 2rem; border-radius: 0.5rem; max-width: 500px; width: 90%;">
+          <h3 style="margin-bottom: 1rem;">确认删除</h3>
+          <p>您确定要删除这个分类吗？该分类下的所有文章将被移至"未分类"。</p>
+          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+            <button id="cancel-delete" class="btn btn-outline">取消</button>
+            <button id="confirm-delete" class="btn btn-primary" style="background-color: #EF4444; border-color: #EF4444;">删除</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // 新增分类按钮点击事件
+    document.getElementById('add-category-btn').addEventListener('click', function() {
+      document.getElementById('category-form-container').style.display = 'block';
+      document.getElementById('category-form').reset();
+    });
+    
+    // 取消按钮点击事件
+    document.getElementById('cancel-category-btn').addEventListener('click', function() {
+      document.getElementById('category-form-container').style.display = 'none';
+    });
+    
+    // 模拟编辑分类
+    document.querySelectorAll('.edit-category').forEach(button => {
+      button.addEventListener('click', function() {
+        const categoryId = this.getAttribute('data-id');
+        document.getElementById('category-form-container').style.display = 'block';
+        // 在实际应用中，这里会从服务器获取分类数据并填充表单
+        // 这里简单模拟填充表单
+        const categories = {
+          '1': { name: '编程', slug: 'programming', description: '编程语言、技术分享和开发经验' },
+          '2': { name: '前端开发', slug: 'frontend', description: 'HTML、CSS、JavaScript、前端框架等相关内容' },
+          '3': { name: '设计', slug: 'design', description: 'UI/UX设计、色彩理论、设计思维' },
+          '4': { name: '人工智能', slug: 'ai', description: 'AI发展、机器学习、深度学习相关内容' },
+          '5': { name: '工具', slug: 'tools', description: '提高效率的软件、工具和资源' },
+          '6': { name: '网站开发', slug: 'web-development', description: '网站设计、开发和维护的经验分享' }
+        };
+        
+        const category = categories[categoryId];
+        document.getElementById('category-name').value = category.name;
+        document.getElementById('category-slug').value = category.slug;
+        document.getElementById('category-description').value = category.description;
+      });
+    });
+    
+    // 模拟删除分类
+    document.querySelectorAll('.delete-category').forEach(button => {
+      button.addEventListener('click', function() {
+        const categoryId = this.getAttribute('data-id');
+        // 显示确认删除模态框
+        document.getElementById('delete-modal').style.display = 'flex';
+      });
+    });
+    
+    // 取消删除
+    document.getElementById('cancel-delete').addEventListener('click', function() {
+      document.getElementById('delete-modal').style.display = 'none';
+    });
+    
+    // 确认删除
+    document.getElementById('confirm-delete').addEventListener('click', function() {
+      // 在实际应用中，这里会发送删除请求到服务器
+      // 这里简单模拟删除成功
+      document.getElementById('delete-modal').style.display = 'none';
+      // 可以在这里添加一个成功提示或者直接移除表格中的对应行
+    });
+  </script>
+</body>
+</html> 

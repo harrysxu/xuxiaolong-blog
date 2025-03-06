@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>系统设置 - 徐晓龙的博客</title>
+  <meta name="description" content="徐晓龙的个人博客后台管理系统 - 系统设置">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入开源图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- 侧边栏导航 -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" target="_blank">徐晓龙的博客</a>
+        <p>管理后台</p>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <a href="admin-dashboard.html" class="sidebar-menu-item">
+          <i class="fas fa-tachometer-alt"></i> 仪表盘
+        </a>
+        <a href="admin-articles.html" class="sidebar-menu-item">
+          <i class="fas fa-file-alt"></i> 文章管理
+        </a>
+        <a href="admin-categories.html" class="sidebar-menu-item">
+          <i class="fas fa-folder"></i> 分类管理
+        </a>
+        <a href="admin-settings.html" class="sidebar-menu-item active">
+          <i class="fas fa-cog"></i> 系统设置
+        </a>
+        <a href="index.html" class="sidebar-menu-item">
+          <i class="fas fa-sign-out-alt"></i> 退出登录
+        </a>
+      </nav>
+    </aside>
+    
+    <!-- 主要内容区域 -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <h1 class="admin-title">系统设置</h1>
+      </header>
+      
+      <!-- 设置选项卡 -->
+      <div class="tabs" style="margin-bottom: 2rem;">
+        <button class="tab-button active" data-tab="profile">个人资料</button>
+        <button class="tab-button" data-tab="blog">博客设置</button>
+        <button class="tab-button" data-tab="security">安全设置</button>
+      </div>
+      
+      <!-- 个人资料设置 -->
+      <div id="profile-tab" class="tab-content active">
+        <form id="profile-form">
+          <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+            <div style="position: relative; width: 120px; height: 120px; margin-bottom: 1rem;">
+              <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80" 
+                   alt="头像" 
+                   style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+              <button type="button" style="position: absolute; bottom: 0; right: 0; width: 36px; height: 36px; border-radius: 50%; background-color: var(--primary-color); color: white; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                <i class="fas fa-camera"></i>
+              </button>
+            </div>
+            <label for="avatar-upload" class="btn btn-outline" style="cursor: pointer;">
+              更换头像
+            </label>
+            <input type="file" id="avatar-upload" style="display: none;" accept="image/*">
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div class="form-group">
+              <label for="name" class="form-label">显示名称</label>
+              <input type="text" id="name" class="form-input" value="徐晓龙">
+            </div>
+            
+            <div class="form-group">
+              <label for="username" class="form-label">用户名</label>
+              <input type="text" id="username" class="form-input" value="xiaolong" disabled>
+              <p style="font-size: 0.875rem; color: var(--text-secondary-color); margin-top: 0.5rem;">
+                用户名不可更改
+              </p>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">电子邮箱</label>
+              <input type="email" id="email" class="form-input" value="xiaolong@example.com">
+            </div>
+            
+            <div class="form-group">
+              <label for="website" class="form-label">个人网站</label>
+              <input type="url" id="website" class="form-input" value="https://example.com">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="bio" class="form-label">个人简介</label>
+            <textarea id="bio" class="form-textarea" rows="5">全栈开发工程师，热爱编程和设计，喜欢分享技术知识和学习经验。目前专注于React、Next.js和TypeScript生态系统的学习和实践。</textarea>
+          </div>
+          
+          <div class="form-group">
+            <h3 style="margin-bottom: 1rem;">社交媒体</h3>
+            
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <span style="width: 40px; text-align: center; color: var(--text-secondary-color);">
+                <i class="fab fa-github fa-lg"></i>
+              </span>
+              <input type="text" class="form-input" placeholder="GitHub 用户名" value="xiaolongxu">
+            </div>
+            
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <span style="width: 40px; text-align: center; color: var(--text-secondary-color);">
+                <i class="fab fa-twitter fa-lg"></i>
+              </span>
+              <input type="text" class="form-input" placeholder="Twitter 用户名" value="xiaolong_dev">
+            </div>
+            
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <span style="width: 40px; text-align: center; color: var(--text-secondary-color);">
+                <i class="fab fa-linkedin fa-lg"></i>
+              </span>
+              <input type="text" class="form-input" placeholder="LinkedIn 用户名" value="xiaolongxu">
+            </div>
+            
+            <div style="display: flex; align-items: center;">
+              <span style="width: 40px; text-align: center; color: var(--text-secondary-color);">
+                <i class="fas fa-link fa-lg"></i>
+              </span>
+              <input type="text" class="form-input" placeholder="其他链接">
+              <button type="button" class="btn btn-outline" style="margin-left: 0.5rem;">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary">保存设置</button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- 博客设置 -->
+      <div id="blog-tab" class="tab-content" style="display: none;">
+        <form id="blog-form">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div class="form-group">
+              <label for="blog-title" class="form-label">博客标题</label>
+              <input type="text" id="blog-title" class="form-input" value="徐晓龙的博客">
+            </div>
+            
+            <div class="form-group">
+              <label for="blog-description" class="form-label">博客描述</label>
+              <input type="text" id="blog-description" class="form-input" value="分享编程、设计和生活的个人博客">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="blog-keywords" class="form-label">SEO关键词</label>
+            <input type="text" id="blog-keywords" class="form-input" value="编程, 前端开发, Next.js, React, 设计, 个人博客">
+            <p style="font-size: 0.875rem; color: var(--text-secondary-color); margin-top: 0.5rem;">
+              多个关键词之间使用英文逗号分隔
+            </p>
+          </div>
+          
+          <div class="form-group">
+            <label for="footer-text" class="form-label">页脚文本</label>
+            <textarea id="footer-text" class="form-textarea" rows="3">© 2023 徐晓龙的博客. 保留所有权利.</textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">博客Logo</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 120px; height: 60px; display: flex; align-items: center; justify-content: center; border: 1px dashed #ddd; border-radius: 0.5rem;">
+                <span style="color: var(--primary-color); font-weight: bold;">徐晓龙的博客</span>
+              </div>
+              <label for="logo-upload" class="btn btn-outline" style="cursor: pointer;">
+                上传新Logo
+              </label>
+              <input type="file" id="logo-upload" style="display: none;" accept="image/*">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <h3 style="margin-bottom: 1rem;">导航链接</h3>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem; background-color: var(--background-alt-color); border-radius: 0.5rem;">
+              <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
+                <input type="text" class="form-input" placeholder="链接文本" value="首页">
+                <input type="text" class="form-input" placeholder="链接URL" value="index.html">
+              </div>
+              <div style="display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-outline" style="background-color: #FEE2E2; border-color: #FEE2E2; color: #EF4444;">
+                  <i class="fas fa-trash"></i> 删除
+                </button>
+              </div>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem; background-color: var(--background-alt-color); border-radius: 0.5rem;">
+              <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
+                <input type="text" class="form-input" placeholder="链接文本" value="分类">
+                <input type="text" class="form-input" placeholder="链接URL" value="categories.html">
+              </div>
+              <div style="display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-outline" style="background-color: #FEE2E2; border-color: #FEE2E2; color: #EF4444;">
+                  <i class="fas fa-trash"></i> 删除
+                </button>
+              </div>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem; background-color: var(--background-alt-color); border-radius: 0.5rem;">
+              <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
+                <input type="text" class="form-input" placeholder="链接文本" value="关于">
+                <input type="text" class="form-input" placeholder="链接URL" value="about.html">
+              </div>
+              <div style="display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-outline" style="background-color: #FEE2E2; border-color: #FEE2E2; color: #EF4444;">
+                  <i class="fas fa-trash"></i> 删除
+                </button>
+              </div>
+            </div>
+            
+            <button type="button" class="btn btn-outline">
+              <i class="fas fa-plus"></i> 添加导航链接
+            </button>
+          </div>
+          
+          <div style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary">保存设置</button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- 安全设置 -->
+      <div id="security-tab" class="tab-content" style="display: none;">
+        <form id="security-form">
+          <div class="form-group">
+            <h3 style="margin-bottom: 1rem;">修改密码</h3>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="current-password" class="form-label">当前密码</label>
+              <input type="password" id="current-password" class="form-input">
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="new-password" class="form-label">新密码</label>
+              <input type="password" id="new-password" class="form-input">
+              <p style="font-size: 0.875rem; color: var(--text-secondary-color); margin-top: 0.5rem;">
+                密码至少包含8个字符，建议使用字母、数字和特殊字符的组合
+              </p>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="confirm-password" class="form-label">确认新密码</label>
+              <input type="password" id="confirm-password" class="form-input">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">更新密码</button>
+          </div>
+          
+          <div class="form-group" style="margin-top: 3rem;">
+            <h3 style="margin-bottom: 1rem; color: #EF4444;">危险操作</h3>
+            
+            <div style="padding: 1.5rem; border: 1px solid #FEE2E2; border-radius: 0.5rem; background-color: #FEF2F2;">
+              <h4 style="color: #EF4444; margin-bottom: 1rem;">清除所有数据</h4>
+              <p style="margin-bottom: 1.5rem;">此操作将永久删除所有博客文章、分类和设置。删除后无法恢复！</p>
+              <button type="button" id="clear-data-btn" class="btn btn-outline" style="background-color: #EF4444; border-color: #EF4444; color: white;">
+                清除所有数据
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+  
+  <!-- 成功提示模态框 (默认隐藏) -->
+  <div id="success-modal" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #D1FAE5; color: #065F46; padding: 1rem 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000;">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <i class="fas fa-check-circle"></i>
+      <span>设置已成功保存</span>
+    </div>
+  </div>
+  
+  <!-- 确认清除数据模态框 (默认隐藏) -->
+  <div id="confirm-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+    <div style="background-color: white; padding: 2rem; border-radius: 0.5rem; max-width: 500px; width: 90%;">
+      <h3 style="color: #EF4444; margin-bottom: 1rem;">危险操作确认</h3>
+      <p style="margin-bottom: 1rem;">您确定要清除所有数据吗？此操作无法撤销，所有内容将永久删除。</p>
+      <div style="margin-bottom: 1.5rem;">
+        <label for="confirm-text" class="form-label">请输入"DELETE"确认操作</label>
+        <input type="text" id="confirm-text" class="form-input">
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 1rem;">
+        <button id="cancel-clear" class="btn btn-outline">取消</button>
+        <button id="confirm-clear" class="btn btn-primary" style="background-color: #EF4444; border-color: #EF4444;" disabled>
+          清除所有数据
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 选项卡切换
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
+        
+        // 更新按钮状态
+        document.querySelectorAll('.tab-button').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        // 显示对应的选项卡内容
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.style.display = 'none';
+        });
+        document.getElementById(tabId + '-tab').style.display = 'block';
+      });
+    });
+    
+    // 表单提交事件处理
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // 模拟保存成功
+        const successModal = document.getElementById('success-modal');
+        successModal.style.display = 'block';
+        
+        // 3秒后自动隐藏成功提示
+        setTimeout(() => {
+          successModal.style.display = 'none';
+        }, 3000);
+      });
+    });
+    
+    // 清除数据确认
+    document.getElementById('clear-data-btn').addEventListener('click', function() {
+      document.getElementById('confirm-modal').style.display = 'flex';
+    });
+    
+    // 取消清除
+    document.getElementById('cancel-clear').addEventListener('click', function() {
+      document.getElementById('confirm-modal').style.display = 'none';
+      document.getElementById('confirm-text').value = '';
+    });
+    
+    // 确认文本验证
+    document.getElementById('confirm-text').addEventListener('input', function() {
+      const confirmButton = document.getElementById('confirm-clear');
+      if (this.value === 'DELETE') {
+        confirmButton.disabled = false;
+      } else {
+        confirmButton.disabled = true;
+      }
+    });
+    
+    // 确认清除
+    document.getElementById('confirm-clear').addEventListener('click', function() {
+      // 在实际应用中，这里会发送请求到服务器清除数据
+      document.getElementById('confirm-modal').style.display = 'none';
+      
+      // 提示清除成功
+      const successModal = document.getElementById('success-modal');
+      successModal.querySelector('span').textContent = '所有数据已清除';
+      successModal.style.backgroundColor = '#FEE2E2';
+      successModal.style.color = '#B91C1C';
+      successModal.querySelector('i').className = 'fas fa-exclamation-circle';
+      successModal.style.display = 'block';
+      
+      // 3秒后自动隐藏成功提示
+      setTimeout(() => {
+        successModal.style.display = 'none';
+      }, 3000);
+    });
+  </script>
+</body>
+</html> 

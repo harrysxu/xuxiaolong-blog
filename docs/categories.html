@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章分类 - 徐晓龙的博客</title>
+  <meta name="description" content="徐晓龙的个人博客文章分类页面，按主题浏览文章内容。">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入开源图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">徐晓龙的博客</a>
+        
+        <!-- 桌面端导航链接 -->
+        <div class="nav-links" id="nav-links">
+          <a href="index.html" class="nav-link">首页</a>
+          <a href="categories.html" class="nav-link active">分类</a>
+          <a href="about.html" class="nav-link">关于</a>
+        </div>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="mobile-menu-button" class="btn btn-outline" style="display: none;">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+      
+      <!-- 移动端菜单 -->
+      <div id="mobile-menu" class="hidden">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="categories.html" class="nav-link active">分类</a>
+        <a href="about.html" class="nav-link">关于</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <!-- 页面标题 -->
+      <div style="margin-bottom: 2rem; text-align: center;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">文章分类</h1>
+        <p style="color: var(--text-secondary-color); max-width: 600px; margin: 0 auto;">
+          按主题浏览文章，找到你感兴趣的内容。
+        </p>
+      </div>
+      
+      <!-- 分类导航 -->
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; justify-content: center;">
+        <a href="categories.html" class="btn btn-primary">全部分类</a>
+        <a href="categories.html?category=programming" class="category-link btn btn-outline" data-slug="programming">编程</a>
+        <a href="categories.html?category=frontend" class="category-link btn btn-outline" data-slug="frontend">前端开发</a>
+        <a href="categories.html?category=backend" class="category-link btn btn-outline" data-slug="backend">后端开发</a>
+        <a href="categories.html?category=design" class="category-link btn btn-outline" data-slug="design">设计</a>
+        <a href="categories.html?category=tools" class="category-link btn btn-outline" data-slug="tools">工具</a>
+        <a href="categories.html?category=ai" class="category-link btn btn-outline" data-slug="ai">人工智能</a>
+        <a href="categories.html?category=webdev" class="category-link btn btn-outline" data-slug="webdev">网站开发</a>
+      </div>
+      
+      <!-- 当前分类标题 -->
+      <div id="category-title" style="margin-bottom: 2rem;">
+        <h2>所有分类</h2>
+        <div style="height: 3px; width: 50px; background-color: var(--primary-color); margin-top: 0.5rem;"></div>
+      </div>
+      
+      <!-- 分类统计卡片 -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <!-- 编程分类卡片 -->
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">编程</h3>
+          <p style="color: var(--text-secondary-color); margin-bottom: 1rem;">10 篇文章</p>
+          <a href="categories.html?category=programming" class="btn btn-outline">浏览文章</a>
+        </div>
+        
+        <!-- 前端开发分类卡片 -->
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+            <i class="fab fa-react"></i>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">前端开发</h3>
+          <p style="color: var(--text-secondary-color); margin-bottom: 1rem;">8 篇文章</p>
+          <a href="categories.html?category=frontend" class="btn btn-outline">浏览文章</a>
+        </div>
+        
+        <!-- 后端开发分类卡片 -->
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">后端开发</h3>
+          <p style="color: var(--text-secondary-color); margin-bottom: 1rem;">6 篇文章</p>
+          <a href="categories.html?category=backend" class="btn btn-outline">浏览文章</a>
+        </div>
+        
+        <!-- 设计分类卡片 -->
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">设计</h3>
+          <p style="color: var(--text-secondary-color); margin-bottom: 1rem;">5 篇文章</p>
+          <a href="categories.html?category=design" class="btn btn-outline">浏览文章</a>
+        </div>
+        
+        <!-- 工具分类卡片 -->
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">工具</h3>
+          <p style="color: var(--text-secondary-color); margin-bottom: 1rem;">4 篇文章</p>
+          <a href="categories.html?category=tools" class="btn btn-outline">浏览文章</a>
+        </div>
+        
+        <!-- 人工智能分类卡片 -->
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">人工智能</h3>
+          <p style="color: var(--text-secondary-color); margin-bottom: 1rem;">3 篇文章</p>
+          <a href="categories.html?category=ai" class="btn btn-outline">浏览文章</a>
+        </div>
+        
+        <!-- 网站开发分类卡片 -->
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+          <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 style="margin-bottom: 0.5rem;">网站开发</h3>
+          <p style="color: var(--text-secondary-color); margin-bottom: 1rem;">7 篇文章</p>
+          <a href="categories.html?category=webdev" class="btn btn-outline">浏览文章</a>
+        </div>
+      </div>
+      
+      <!-- 当前分类文章列表 -->
+      <div id="category-articles">
+        <h3 style="margin-bottom: 1.5rem;">最新文章</h3>
+        
+        <div class="article-grid">
+          <!-- 文章卡片1 -->
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
+                 alt="文章配图" 
+                 class="card-img">
+            <div class="card-content">
+              <a href="article.html?id=1" class="card-title">我的编程学习之旅：从零开始到全栈开发</a>
+              <div class="card-meta">
+                <span><i class="far fa-calendar"></i> 2023年6月15日</span>
+                <span><i class="far fa-folder"></i> 编程</span>
+              </div>
+              <p class="card-excerpt">分享我的编程学习经历，以及对初学者的一些建议和资源推荐。</p>
+              <a href="article.html?id=1" class="btn btn-outline">阅读全文</a>
+            </div>
+          </div>
+          
+          <!-- 文章卡片2 -->
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
+                 alt="文章配图" 
+                 class="card-img">
+            <div class="card-content">
+              <a href="article.html?id=2" class="card-title">Next.js 13 新特性详解</a>
+              <div class="card-meta">
+                <span><i class="far fa-calendar"></i> 2023年5月28日</span>
+                <span><i class="far fa-folder"></i> 前端开发</span>
+              </div>
+              <p class="card-excerpt">深入探讨 Next.js 13 版本带来的新特性，包括 App Router、Server Components 等革命性变更。</p>
+              <a href="article.html?id=2" class="btn btn-outline">阅读全文</a>
+            </div>
+          </div>
+          
+          <!-- 文章卡片3 -->
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
+                 alt="文章配图" 
+                 class="card-img">
+            <div class="card-content">
+              <a href="article.html?id=3" class="card-title">TypeScript 高级类型技巧</a>
+              <div class="card-meta">
+                <span><i class="far fa-calendar"></i> 2023年5月10日</span>
+                <span><i class="far fa-folder"></i> 编程</span>
+              </div>
+              <p class="card-excerpt">分享TypeScript中的高级类型技巧，包括条件类型、映射类型、类型体操等实用知识。</p>
+              <a href="article.html?id=3" class="btn btn-outline">阅读全文</a>
+            </div>
+          </div>
+          
+          <!-- 文章卡片4 -->
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
+                 alt="文章配图" 
+                 class="card-img">
+            <div class="card-content">
+              <a href="article.html?id=4" class="card-title">设计师必备的色彩理论</a>
+              <div class="card-meta">
+                <span><i class="far fa-calendar"></i> 2023年4月22日</span>
+                <span><i class="far fa-folder"></i> 设计</span>
+              </div>
+              <p class="card-excerpt">详解色彩理论的基础知识，以及如何在实际设计中应用配色方案提升用户体验。</p>
+              <a href="article.html?id=4" class="btn btn-outline">阅读全文</a>
+            </div>
+          </div>
+          
+          <!-- 文章卡片5 -->
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1594904351111-a072f80b1a71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
+                 alt="文章配图" 
+                 class="card-img">
+            <div class="card-content">
+              <a href="article.html?id=5" class="card-title">提高工作效率的10个实用工具</a>
+              <div class="card-meta">
+                <span><i class="far fa-calendar"></i> 2023年4月5日</span>
+                <span><i class="far fa-folder"></i> 工具</span>
+              </div>
+              <p class="card-excerpt">推荐10个能够显著提高日常工作效率的实用工具和软件，适合程序员和设计师使用。</p>
+              <a href="article.html?id=5" class="btn btn-outline">阅读全文</a>
+            </div>
+          </div>
+          
+          <!-- 文章卡片6 -->
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" 
+                 alt="文章配图" 
+                 class="card-img">
+            <div class="card-content">
+              <a href="article.html?id=6" class="card-title">机器学习入门指南</a>
+              <div class="card-meta">
+                <span><i class="far fa-calendar"></i> 2023年3月18日</span>
+                <span><i class="far fa-folder"></i> 人工智能</span>
+              </div>
+              <p class="card-excerpt">为完全没有基础的人准备的机器学习入门指南，包括学习路径和推荐资源。</p>
+              <a href="article.html?id=6" class="btn btn-outline">阅读全文</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 分页 -->
+        <div class="pagination">
+          <a href="#" class="pagination-item active">1</a>
+          <a href="#" class="pagination-item">2</a>
+          <a href="#" class="pagination-item">3</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <div style="margin-bottom: 1rem;">
+          <h3 style="margin-bottom: 1rem;">徐晓龙的博客</h3>
+          <p style="max-width: 400px;">分享编程、设计和生活的个人博客，记录成长与思考的点滴。</p>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 1rem;">链接</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.5rem;"><a href="index.html">首页</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="categories.html">分类</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="about.html">关于</a></li>
+          </ul>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+          <h4 style="margin-bottom: 1rem;">联系方式</h4>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" style="font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+            <a href="#" style="font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+            <a href="#" style="font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 2rem; text-align: center; color: var(--text-secondary-color);">
+        <p>&copy; 2023 徐晓龙的博客. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    // 分类页面特定的脚本
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const categorySlug = urlParams.get('category');
+      
+      if (categorySlug) {
+        // 更新当前分类标题
+        const categoryTitle = document.getElementById('category-title');
+        const categoryName = {
+          'programming': '编程',
+          'frontend': '前端开发',
+          'backend': '后端开发',
+          'design': '设计',
+          'tools': '工具',
+          'ai': '人工智能',
+          'webdev': '网站开发'
+        }[categorySlug] || '所有分类';
+        
+        categoryTitle.innerHTML = `
+          <h2>${categoryName}</h2>
+          <div style="height: 3px; width: 50px; background-color: var(--primary-color); margin-top: 0.5rem;"></div>
+        `;
+        
+        // 当前分类按钮高亮
+        document.querySelectorAll('.category-link').forEach(link => {
+          if (link.getAttribute('data-slug') === categorySlug) {
+            link.classList.remove('btn-outline');
+            link.classList.add('btn-primary');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

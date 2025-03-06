@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>编辑文章 - 徐晓龙的博客</title>
+  <meta name="description" content="徐晓龙的个人博客后台文章编辑页面。">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入开源图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 引入编辑器样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        徐晓龙的博客
+      </div>
+      
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+          <i class="fas fa-tachometer-alt"></i>
+          <a href="admin-dashboard.html">控制台</a>
+        </li>
+        <li class="sidebar-menu-item active">
+          <i class="fas fa-file-alt"></i>
+          <a href="admin-articles.html">文章管理</a>
+        </li>
+        <li class="sidebar-menu-item">
+          <i class="fas fa-folder"></i>
+          <a href="admin-categories.html">分类管理</a>
+        </li>
+        <li class="sidebar-menu-item">
+          <i class="fas fa-user"></i>
+          <a href="admin-profile.html">个人信息</a>
+        </li>
+        <li class="sidebar-menu-item">
+          <i class="fas fa-cog"></i>
+          <a href="admin-settings.html">网站设置</a>
+        </li>
+        <li class="sidebar-menu-item" style="margin-top: auto;">
+          <i class="fas fa-sign-out-alt"></i>
+          <a href="admin-login.html">退出登录</a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="admin-content">
+      <div class="admin-header">
+        <h1 class="admin-title">编辑文章</h1>
+        <div>
+          <button class="btn btn-outline" style="margin-right: 0.5rem;">
+            <i class="fas fa-eye"></i> 预览
+          </button>
+          <button class="btn btn-outline" style="margin-right: 0.5rem;">
+            <i class="fas fa-save"></i> 保存草稿
+          </button>
+          <button class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> 发布
+          </button>
+        </div>
+      </div>
+      
+      <!-- 编辑区域 -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+        <!-- 文章内容编辑 -->
+        <div>
+          <!-- 标题 -->
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+            <input type="text" placeholder="输入文章标题..." value="Web开发中的常见安全问题" 
+              style="width: 100%; padding: 0.75rem 0; font-size: 1.5rem; font-weight: 700; border: none; outline: none; border-bottom: 1px solid #E5E7EB;">
+          </div>
+          
+          <!-- Markdown编辑器 -->
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+            <textarea id="markdown-editor">
+# Web开发中的常见安全问题
+
+在Web应用开发过程中，安全性是一个不可忽视的重要方面。本文将介绍几种常见的Web安全问题及其防范措施。
+
+## 1. 跨站脚本攻击 (XSS)
+
+XSS是一种常见的Web安全漏洞，攻击者可以通过在受信任的网站上注入恶意脚本代码来实现攻击。
+
+### 防范措施:
+- 输入验证与过滤
+- 输出编码
+- 使用Content Security Policy (CSP)
+- 使用HttpOnly标志保护Cookie
+
+## 2. SQL注入攻击
+
+SQL注入是一种代码注入技术，可能会破坏数据库查询。
+
+### 防范措施:
+- 使用参数化查询
+- 使用存储过程
+- 输入验证与过滤
+- 最小权限原则
+
+## 3. 跨站请求伪造 (CSRF)
+
+CSRF攻击强制用户在已认证的Web应用中执行不期望的操作。
+
+### 防范措施:
+- 使用Anti-CSRF令牌
+- 验证HTTP Referer头
+- 使用SameSite Cookie属性
+
+## 4. 密码安全
+
+密码泄露是最常见的安全问题之一。
+
+### 防范措施:
+- 使用强密码哈希算法（如bcrypt, Argon2）
+- 实施密码复杂度要求
+- 启用双因素认证(2FA)
+- 限制登录尝试次数
+
+## 5. 安全的会话管理
+
+会话管理不当可能导致会话劫持或固定。
+
+### 防范措施:
+- 登录后重新生成会话ID
+- 设置合适的Cookie属性（Secure, HttpOnly）
+- 实施会话超时机制
+- 绑定会话到IP地址或设备指纹
+
+遵循以上安全实践可以显著提高Web应用的安全性，但安全是一个持续性的过程，需要不断学习和更新知识。
+
+![安全图示](/images/web-security.jpg)
+
+```javascript
+// 示例: XSS防御 - 输出编码
+function escapeHTML(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+```
+            </textarea>
+          </div>
+          
+          <!-- SEO设置 -->
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.25rem;">SEO设置</h3>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="seo-url" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">自定义URL</label>
+              <div style="display: flex; align-items: center;">
+                <span style="color: var(--text-secondary-color); margin-right: 0.5rem;">/blog/</span>
+                <input type="text" id="seo-url" placeholder="web-security-issues" value="web-security-issues" 
+                  style="flex-grow: 1; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+              </div>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="seo-description" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Meta描述</label>
+              <textarea id="seo-description" placeholder="输入Meta描述..." rows="3" 
+                style="width: 100%; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem; resize: vertical;">探讨Web开发中常见的安全问题，包括XSS、SQL注入、CSRF等，并提供有效的防范措施和最佳实践。</textarea>
+              <div style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--text-secondary-color);">
+                <span id="seo-description-count">140</span>/160 字符
+              </div>
+            </div>
+            
+            <div>
+              <label for="seo-keywords" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">关键词（用逗号分隔）</label>
+              <input type="text" id="seo-keywords" placeholder="Web安全, XSS, SQL注入, CSRF, 安全最佳实践" 
+                value="Web安全, XSS, SQL注入, CSRF, 安全最佳实践"
+                style="width: 100%; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+            </div>
+          </div>
+        </div>
+        
+        <!-- 侧边设置栏 -->
+        <div>
+          <!-- 发布设置 -->
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+            <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.25rem;">发布设置</h3>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="article-status" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">状态</label>
+              <select id="article-status" style="width: 100%; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+                <option value="draft" selected>草稿</option>
+                <option value="published">已发布</option>
+                <option value="pending">待审核</option>
+              </select>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="article-visibility" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">可见性</label>
+              <select id="article-visibility" style="width: 100%; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+                <option value="public" selected>公开</option>
+                <option value="private">私密</option>
+                <option value="password">密码保护</option>
+              </select>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+              <label for="publish-date" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">发布日期</label>
+              <input type="datetime-local" id="publish-date" value="2023-06-30T10:00" 
+                style="width: 100%; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem;">
+            </div>
+            
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" id="allow-comments" checked style="margin-right: 0.5rem;">
+              <label for="allow-comments">允许评论</label>
+            </div>
+          </div>
+          
+          <!-- 分类 -->
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+            <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.25rem;">分类</h3>
+            
+            <div style="margin-bottom: 0.5rem;">
+              <input type="checkbox" id="cat-frontend" style="margin-right: 0.5rem;">
+              <label for="cat-frontend">前端开发</label>
+            </div>
+            
+            <div style="margin-bottom: 0.5rem;">
+              <input type="checkbox" id="cat-backend" style="margin-right: 0.5rem;">
+              <label for="cat-backend">后端开发</label>
+            </div>
+            
+            <div style="margin-bottom: 0.5rem;">
+              <input type="checkbox" id="cat-fullstack" checked style="margin-right: 0.5rem;">
+              <label for="cat-fullstack">全栈开发</label>
+            </div>
+            
+            <div style="margin-bottom: 0.5rem;">
+              <input type="checkbox" id="cat-security" checked style="margin-right: 0.5rem;">
+              <label for="cat-security">Web安全</label>
+            </div>
+            
+            <div style="margin-bottom: 0.5rem;">
+              <input type="checkbox" id="cat-personal" style="margin-right: 0.5rem;">
+              <label for="cat-personal">个人感悟</label>
+            </div>
+            
+            <button class="btn btn-sm btn-outline" style="margin-top: 0.5rem;">
+              <i class="fas fa-plus"></i> 添加分类
+            </button>
+          </div>
+          
+          <!-- 标签 -->
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+            <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.25rem;">标签</h3>
+            
+            <div>
+              <input type="text" placeholder="添加标签..." 
+                style="width: 100%; padding: 0.5rem; border: 1px solid #E5E7EB; border-radius: 0.375rem; margin-bottom: 0.5rem;">
+              
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span style="background-color: #F3F4F6; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.875rem; display: inline-flex; align-items: center;">
+                  Web安全
+                  <button style="background: none; border: none; margin-left: 0.25rem; cursor: pointer;">
+                    <i class="fas fa-times" style="font-size: 0.75rem;"></i>
+                  </button>
+                </span>
+                
+                <span style="background-color: #F3F4F6; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.875rem; display: inline-flex; align-items: center;">
+                  XSS
+                  <button style="background: none; border: none; margin-left: 0.25rem; cursor: pointer;">
+                    <i class="fas fa-times" style="font-size: 0.75rem;"></i>
+                  </button>
+                </span>
+                
+                <span style="background-color: #F3F4F6; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.875rem; display: inline-flex; align-items: center;">
+                  SQL注入
+                  <button style="background: none; border: none; margin-left: 0.25rem; cursor: pointer;">
+                    <i class="fas fa-times" style="font-size: 0.75rem;"></i>
+                  </button>
+                </span>
+                
+                <span style="background-color: #F3F4F6; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.875rem; display: inline-flex; align-items: center;">
+                  CSRF
+                  <button style="background: none; border: none; margin-left: 0.25rem; cursor: pointer;">
+                    <i class="fas fa-times" style="font-size: 0.75rem;"></i>
+                  </button>
+                </span>
+                
+                <span style="background-color: #F3F4F6; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.875rem; display: inline-flex; align-items: center;">
+                  最佳实践
+                  <button style="background: none; border: none; margin-left: 0.25rem; cursor: pointer;">
+                    <i class="fas fa-times" style="font-size: 0.75rem;"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 特色图片 -->
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.25rem;">特色图片</h3>
+            
+            <div style="border: 2px dashed #E5E7EB; border-radius: 0.375rem; padding: 1.5rem; text-align: center;">
+              <img src="https://via.placeholder.com/800x400?text=Web安全" alt="特色图片预览" style="max-width: 100%; margin-bottom: 1rem;">
+              
+              <div>
+                <button class="btn btn-outline" style="margin-right: 0.5rem;">
+                  <i class="fas fa-upload"></i> 上传图片
+                </button>
+                <button class="btn btn-outline btn-danger">
+                  <i class="fas fa-trash"></i> 移除
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    // 初始化Markdown编辑器
+    document.addEventListener('DOMContentLoaded', function() {
+      const easyMDE = new EasyMDE({
+        element: document.getElementById('markdown-editor'),
+        spellChecker: false,
+        autosave: {
+          enabled: true,
+          delay: 5000,
+          uniqueId: 'article-draft-content'
+        },
+        toolbar: [
+          'bold', 'italic', 'heading', '|',
+          'code', 'quote', 'unordered-list', 'ordered-list', '|',
+          'link', 'image', 'table', '|',
+          'preview', 'side-by-side', 'fullscreen', '|',
+          'guide'
+        ]
+      });
+      
+      // Meta描述字数统计
+      const descriptionElem = document.getElementById('seo-description');
+      const countElem = document.getElementById('seo-description-count');
+      
+      function updateCount() {
+        const length = descriptionElem.value.length;
+        countElem.textContent = length;
+        
+        if (length > 160) {
+          countElem.style.color = '#EF4444';
+        } else {
+          countElem.style.color = '';
+        }
+      }
+      
+      descriptionElem.addEventListener('input', updateCount);
+      updateCount();
+    });
+  </script>
+</body>
+</html> 

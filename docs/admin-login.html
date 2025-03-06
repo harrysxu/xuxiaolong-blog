@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后台登录 - 徐晓龙的博客</title>
+  <meta name="description" content="徐晓龙的个人博客后台管理登录页面。">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 引入开源图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--background-alt-color);">
+  <div style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="card" style="width: 100%; max-width: 400px; padding: 2rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 1.75rem; margin-bottom: 0.5rem;">博客后台管理</h1>
+        <p style="color: var(--text-secondary-color);">请登录以继续</p>
+      </div>
+      
+      <div id="error-message" class="hidden" style="background-color: #FEE2E2; border: 1px solid #F87171; color: #B91C1C; padding: 0.75rem; border-radius: 0.375rem; margin-bottom: 1.5rem;">
+        用户名或密码错误
+      </div>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username" class="form-label">用户名</label>
+          <div style="position: relative;">
+            <span style="position: absolute; left: 1rem; top: 0.75rem; color: var(--text-secondary-color);">
+              <i class="fas fa-user"></i>
+            </span>
+            <input 
+              type="text" 
+              id="username" 
+              name="username" 
+              class="form-input" 
+              style="padding-left: 2.5rem;" 
+              placeholder="请输入用户名" 
+              required
+            >
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="password" class="form-label">密码</label>
+          <div style="position: relative;">
+            <span style="position: absolute; left: 1rem; top: 0.75rem; color: var(--text-secondary-color);">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-input" 
+              style="padding-left: 2.5rem;" 
+              placeholder="请输入密码" 
+              required
+            >
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+          <input type="checkbox" id="remember" name="remember" style="margin-right: 0.5rem;">
+          <label for="remember" style="color: var(--text-secondary-color); font-size: 0.875rem;">记住我</label>
+          <a href="#" style="margin-left: auto; font-size: 0.875rem;">忘记密码？</a>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">
+          登录
+        </button>
+      </form>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" style="display: flex; align-items: center; justify-content: center; color: var(--text-secondary-color);">
+          <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i> 返回博客
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.getElementById('login-form');
+      
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // 演示用途，实际应用中应通过后端API验证登录
+        if (username === 'admin' && password === 'password') {
+          window.location.href = 'admin-dashboard.html';
+        } else {
+          const errorMessage = document.getElementById('error-message');
+          errorMessage.classList.remove('hidden');
+          
+          // 震动效果
+          loginForm.classList.add('shake');
+          setTimeout(() => {
+            loginForm.classList.remove('shake');
+          }, 500);
+        }
+      });
+    });
+  </script>
+  
+  <style>
+    .hidden {
+      display: none;
+    }
+    
+    .shake {
+      animation: shake 0.5s;
+    }
+    
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</body>
+</html> 
