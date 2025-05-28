@@ -5,6 +5,7 @@
 - [后端开发](#后端开发)
 - [数据库](#数据库)
 - [部署与运维](#部署与运维)
+- [开发工具](#开发工具)
 - [问题解决](#问题解决)
 - [最佳实践](#最佳实践)
 - [设计决策记录](#设计决策记录)
@@ -87,6 +88,40 @@ module.exports = {
 - **背景**：项目计划部署到Vercel平台
 - **要点**：待添加
 - **记录日期**：YYYY-MM-DD
+
+## 开发工具
+
+### KB007: Cursor背景代理环境配置
+- **背景**：配置Cursor编辑器的背景代理功能，实现异步开发任务处理
+- **要点**：
+  - 背景代理是预览功能，需要关闭隐私模式
+  - 需要GitHub仓库读写权限
+  - 通过`.cursor/environment.json`配置环境
+  - 使用安装脚本自动化依赖管理
+- **配置文件结构**：
+```json
+{
+  "user": "ubuntu",
+  "install": "./.cursor/install.sh",
+  "start": "echo 'Starting development environment...'",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": "npm run dev",
+      "description": "启动Next.js开发服务器"
+    }
+  ]
+}
+```
+- **使用方法**：
+  - `Cmd + '` 打开背景代理列表
+  - `Cmd + ;` 查看代理状态
+- **适用场景**：
+  - 大型功能开发
+  - 并行任务处理
+  - 自动化测试和构建
+- **参考资料**：[Cursor背景代理文档](https://docs.cursor.com/background-agent)
+- **记录日期**：2024-05-28
 
 ## 问题解决
 
