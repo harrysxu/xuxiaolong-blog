@@ -1,0 +1,12 @@
+{
+  "user": "ubuntu",
+  "install": "./.cursor/install.sh",
+  "start": "echo 'Starting development environment...'",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": "npm run dev",
+      "description": "启动Next.js开发服务器，监听文件变化并自动重新加载"
+    }
+  ]
+} 
